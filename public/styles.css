@@ -18,6 +18,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-width: 1000px;
   max-width: 1000px;
   border: 1px solid green;
   background-color: lightgrey;
