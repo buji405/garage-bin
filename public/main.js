@@ -1,5 +1,3 @@
-
-
 $('.submit').on('click',  () => {
   let inputVal = $('.add-item').val()
   clearInput()
