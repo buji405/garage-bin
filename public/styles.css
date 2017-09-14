@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .garage-container {
@@ -11,14 +12,15 @@ body {
   align-items: center;
   flex-direction: column;
   border: 2px solid black;
-  height: 100vh;
 }
 
 .garage {
-  min-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   max-width: 1000px;
-  width: 80%;
   border: 1px solid green;
+  background-color: lightgrey;
 }
 
 .info-container {
@@ -54,4 +56,38 @@ body {
   width: 80px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid orange;
+  border-radius: 2px;
+  width: 20%;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+}
+
+.card-container:hover {
+  cursor: pointer;
+}
+
+.reasoning {
+  margin-bottom: 10px;
+}
+
+.item-name {
+  text-align: center;
+  bottom: 10px;
+}
+
+.details {
+  display: none;
+  margin-top: 10px;
+}
+
+.show {
+  display: block;
 }
