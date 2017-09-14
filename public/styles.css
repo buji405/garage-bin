@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.garage-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  height: 100vh;
+}
+
+.garage {
+  min-height: 600px;
+  max-width: 1000px;
+  width: 80%;
+  border: 1px solid green;
+}
