@@ -4,34 +4,48 @@
 
 body {
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .garage-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   border: 2px solid black;
-  height: 100vh;
 }
 
 .garage {
-  min-height: 600px;
-  max-width: 1000px;
-  width: 80%;
-  border: 1px solid green;
-}
-
-.input-field {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+  border: 1px solid green;
+  background-color: lightgrey;
 }
 
-.add-item {
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.name,
+.reason {
   width: 200px;
   height: 30px;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 15px;
   padding-left: 10px;
+}
+
+.bottom-info {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.cleanliness-select {
+  height: 30px;
 }
 
 .submit {
@@ -42,4 +56,38 @@ body {
   width: 80px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid orange;
+  border-radius: 2px;
+  width: 20%;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+}
+
+.card-container:hover {
+  cursor: pointer;
+}
+
+.reasoning {
+  margin-bottom: 10px;
+}
+
+.item-name {
+  text-align: center;
+  bottom: 10px;
+}
+
+.details {
+  display: none;
+  margin-top: 10px;
+}
+
+.show {
+  display: block;
 }

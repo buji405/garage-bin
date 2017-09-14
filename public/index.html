@@ -11,9 +11,18 @@
   <body>
     
     <section class="garage-container">
-      <div class="input-field">
-        <input class="add-item" placeholder="Add an item" type="text">
-        <button class="submit">Submit</button>
+      <div class="info-container">
+        <input class="name" placeholder="Name of item" type="text">
+        <input class="reason" placeholder="Reason why it's in garage" type="text">
+        <section class="bottom-info">
+          <select class="cleanliness-select">
+            <option value="" disabled="disabled" selected="selected">Cleanliness Status</option>
+            <option value="sparkling">Sparkling</option>
+            <option value="dusty">Dusty</option>
+            <option value="rancid">Rancid</option>
+          </select>
+          <button class="submit">Submit</button>
+        </section>
       </div>
       <section class="garage">
     
