@@ -1,5 +1,11 @@
 
 
 $('.submit').on('click',  () => {
-  console.log('yay!');
+  let inputVal = $('.add-item').val()
+  clearInput()
+  console.log(inputVal);
 })
+
+const clearInput = () => {
+  $('input').val('')
+}
