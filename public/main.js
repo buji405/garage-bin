@@ -1,1 +1,5 @@
-console.log('hi');
+
+
+$('.submit').on('click',  () => {
+  console.log('yay!');
+})

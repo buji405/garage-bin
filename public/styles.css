@@ -10,6 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   border: 2px solid black;
   height: 100vh;
 }
@@ -19,4 +20,26 @@ body {
   max-width: 1000px;
   width: 80%;
   border: 1px solid green;
+}
+
+.input-field {
+  display: flex;
+}
+
+.add-item {
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+.submit {
+  height: 30px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 2px;
+  width: 80px;
+  cursor: pointer;
+  font-size: 14px;
 }
