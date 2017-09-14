@@ -46,6 +46,16 @@ app.post('/api/v1/items', (request, response) => {
     });
 })
 
+// app.patch('/api/v1/items', (request, response) => {
+//   const { item_count } = request.body;
+// 
+//   database('item').where('id', request.params.id)
+//   .select().increment(`${item_count}items`, '*')
+//     .then(item => {
+//       console.log(item)
+//     });
+// });
+
 app.put('/api/v1/items/:id', (request, response) => {
   database('item').where('id', request.params.id)
   .update({
