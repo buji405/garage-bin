@@ -47,9 +47,9 @@ app.post('/api/v1/items', (request, response) => {
 })
 
 app.put('/api/v1/items/:id', (request, response) => {
-  db('item').where('id', request.params.id)
+  database('item').where('id', request.params.id)
   .update({
-    cleanliness: request.body.cleanliness,
+    cleanliness: request.body,
   }, '*')
   .then((data) => response.status(201).json(data))
   .catch((error) => response.status(500).json(error))
