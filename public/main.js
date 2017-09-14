@@ -1,9 +1,12 @@
 $('.submit').on('click',  () => {
-  let inputVal = $('.add-item').val()
-  clearInput()
-  console.log(inputVal);
+  let nameVal = $('.name').val()
+  let reasonVal = $('.reason').val()
+  let cleanStatusVal = $('.cleanliness-select').val()
+  
+  clearInputs()
 })
 
-const clearInput = () => {
+const clearInputs = () => {
   $('input').val('')
+  $('.cleanliness-select').val('')
 }
