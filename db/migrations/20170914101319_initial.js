@@ -5,6 +5,8 @@ exports.up = function(knex, Promise) {
       table.string('name');
       table.string('reason');
       table.string('cleanliness');
+      table.integer('item_count');
+      table.integer('cleanliness_count')
 
       table.timestamps(true, true);
     })
