@@ -47,6 +47,55 @@ describe('API Routes', () => {
           done();
         });
     });
+    it('should return a 404 error if you go to the wrong endpoint', (done) => {
+      chai.request(server)
+      .get('/api/v1/itms')
+      .end((error, response) => {
+        response.should.have.status(404)
+
+        done()
+      })
   });
+});
   
-})
+  describe('POST /api/v1/items', () => {
+    it('should post an item', (done) => {
+      chai.request(server)
+        .post('/api/v1/items')
+        .send({
+          id: 4,
+          name: 'saw',
+          reason: 'for sawin logs',
+          cleanliness: 'sparkling',
+          created_at: '2017-09-15T00:46:21.513Z',
+          updated_at: '2017-09-15T00:52:21.513Z'
+        })
+        .end((err, res) => {
+          console.log(res.body);
+          res.should.have.status(201)
+          res.should.be.json
+          res.body.should.be.a('object')
+          res.body.should.have.property('id');
+          res.body.id.should.equal(4);
+          res.body.should.have.property('name')
+          res.body.name.should.equal('saw')
+          res.body.should.have.property('reason')
+          res.body.reason.should.equal('for sawin logs')
+          res.body.should.have.property('cleanliness')
+          res.body.cleanliness.should.equal('sparkling')
+          
+          chai.request(server)
+         .get('/api/v1/items')
+         .end((err, res) => {
+           console.log(res.body);
+          res.should.have.status(200)
+          res.body.should.be.a('array')
+          res.should.be.json
+          res.body.length.should.equal(4)
+
+          done()
+        });
+      });
+    });
+  });
+});
