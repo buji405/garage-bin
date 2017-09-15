@@ -81,30 +81,6 @@ const updateCleanliness = (e) => {
   .catch((error ) => console.log(error))
 }
 
-// const updateItemCount = () => {
-//   fetch('/api/v1/items', {
-//           method: 'PATCH',
-//           headers: {
-//             'Content-Type': 'application/json',
-//           },
-//           body: JSON.stringify({
-//             item_count
-//           }),
-//         })
-//           .then(res => res.json())
-//           .then(data => console.log(data))
-//           .catch(err => console.log(err));
-// }
-
-// const displayItemCount = (items) => {
-//   const currentTotal = parseInt($('.total-counter').text());
-//    const newTotal = currentTotal + 1;
-//   newCount = items + 1 
-//   $('.total-counter').text(newTotal);
-// }
-
-
-
 $('.garage').on('click', '.item-name', function (e) {
   $(e.target).parent().find(".details").toggleClass("show")
 })
@@ -112,6 +88,3 @@ $('.garage').on('click', '.item-name', function (e) {
 $('.garage').on('click', '.update-cleanliness', function (e) {
    updateCleanliness(e)
 })
-
-
-
