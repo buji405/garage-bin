@@ -42,8 +42,7 @@ describe('API Routes', () => {
           res.body[2].should.have.property('reason')
           res.body[2].reason.should.equal('stains on it')
           res.body[2].should.have.property('cleanliness')
-          res.body[2].cleanliness.should.equal('rancid')
-          
+          res.body[2].cleanliness.should.equal('rancid')    
           done();
         });
     });
@@ -51,10 +50,9 @@ describe('API Routes', () => {
       chai.request(server)
       .get('/api/v1/itms')
       .end((error, response) => {
-        response.should.have.status(404)
-
-        done()
-      })
+        response.should.have.status(404);
+        done();
+      });
   });
 });
   
@@ -112,6 +110,37 @@ describe('API Routes', () => {
           res.body.error.should.equal('Missing required reason parameter');
           done();
         });
-    })
+    });
   });
+  
+  describe('PUT /api/v1/items', () => {
+   it('should update cleanliness of an item', (done) => {
+     chai.request(server)
+     .put('/api/v1/items/1')
+     .send({
+       cleanliness: 'rancid',
+     })
+     .end((err, res) => {
+       console.log(res.body);
+       res.status.should.equal(201);
+       res.should.be.json;
+       res.body.should.be.a('array');
+       done();
+       });
+   });
+   it('should not update an item that does not exist', () => {
+     chai.request(server)
+     .put('/api/v1/items/8')
+     .send({
+       cleanliness: 'sparkling',
+     })
+     .end((err, res) => {
+       console.log(res.body);
+       res.status.should.equal(500);
+       res.should.be.json;
+       res.body.should.be.a('array');
+       done();
+       });
+     })
+   });
 });
