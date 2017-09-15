@@ -26,7 +26,6 @@ describe('API Routes', () => {
       chai.request(server)
         .get('/api/v1/items')
         .end((err, res) => {
-          console.log(res.body);
           res.status.should.equal(200);
           res.should.be.json;
           res.body.length.should.equal(3);
@@ -69,7 +68,6 @@ describe('API Routes', () => {
           updated_at: '2017-09-15T00:52:21.513Z'
         })
         .end((err, res) => {
-          console.log(res.body);
           res.should.have.status(201);
           res.should.be.json;
           res.body.should.be.a('object');
@@ -85,7 +83,6 @@ describe('API Routes', () => {
           chai.request(server)
          .get('/api/v1/items')
          .end((err, res) => {
-           console.log(res.body);
           res.should.have.status(200);
           res.body.should.be.a('array');
           res.should.be.json;
@@ -121,7 +118,6 @@ describe('API Routes', () => {
        cleanliness: 'rancid',
      })
      .end((err, res) => {
-       console.log(res.body);
        res.status.should.equal(201);
        res.should.be.json;
        res.body.should.be.a('array');
@@ -135,7 +131,6 @@ describe('API Routes', () => {
        cleanliness: 'sparkling',
      })
      .end((err, res) => {
-       console.log(res.body);
        res.status.should.equal(500);
        res.should.be.json;
        res.body.should.be.a('array');
