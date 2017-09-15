@@ -7,7 +7,6 @@ $('.submit').on('click',  () => {
   let nameVal = $('.name').val()
   let reasonVal = $('.reason').val()
   let cleanStatusVal = $('.cleanliness-select').val()
-  console.log(cleanStatusVal);
   
   addItem(nameVal, reasonVal, cleanStatusVal)
   clearInputs()
@@ -43,7 +42,6 @@ const getItems = () => {
   .then((res) => res.json())
   .then((info) => {
     info.forEach((info) => {
-      console.log(info.id)
       $('.garage').append(`
           <div class="card-container id=${info.id}">
             <p class="item-name">${info.name}</p>
@@ -63,7 +61,6 @@ const getItems = () => {
         `)
     })
   })
-  
   .catch(error => console.log(error))
 }
 

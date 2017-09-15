@@ -72,30 +72,46 @@ describe('API Routes', () => {
         })
         .end((err, res) => {
           console.log(res.body);
-          res.should.have.status(201)
-          res.should.be.json
-          res.body.should.be.a('object')
+          res.should.have.status(201);
+          res.should.be.json;
+          res.body.should.be.a('object');
           res.body.should.have.property('id');
           res.body.id.should.equal(4);
-          res.body.should.have.property('name')
-          res.body.name.should.equal('saw')
-          res.body.should.have.property('reason')
-          res.body.reason.should.equal('for sawin logs')
-          res.body.should.have.property('cleanliness')
-          res.body.cleanliness.should.equal('sparkling')
+          res.body.should.have.property('name');
+          res.body.name.should.equal('saw');
+          res.body.should.have.property('reason');
+          res.body.reason.should.equal('for sawin logs');
+          res.body.should.have.property('cleanliness');
+          res.body.cleanliness.should.equal('sparkling');
           
           chai.request(server)
          .get('/api/v1/items')
          .end((err, res) => {
            console.log(res.body);
-          res.should.have.status(200)
-          res.body.should.be.a('array')
-          res.should.be.json
-          res.body.length.should.equal(4)
-
-          done()
+          res.should.have.status(200);
+          res.body.should.be.a('array');
+          res.should.be.json;
+          res.body.length.should.equal(4);
+          done();
         });
       });
     });
+    it('should return an error if required information is missing', () => {
+      chai.request(server)
+        .post('/api/v1/items')
+        .send({
+          id: 5,
+          name: 'mini-fridge',
+          cleanliness: 'rusty',
+        })
+        .end((err, res) => {
+          res.status.should.equal(422);
+          res.should.be.json;
+          res.body.should.be.a('object');
+          res.body.should.have.property('error');
+          res.body.error.should.equal('Missing required reason parameter');
+          done();
+        });
+    })
   });
 });
