@@ -48,7 +48,7 @@ const getItems = () => {
             <div class="details">
               <p class="reasoning">Reason: ${info.reason}</p>
               <p class="status">Cleanliness: ${info.cleanliness}</p>
-              <p>Update Cleanliness: </p>
+              <p class="clean">Update Cleanliness:</p>
               <select class="cleanliness-select-update">
                 <option value="" disabled="disabled" selected="selected">Cleanliness Status</option>
                 <option value="sparkling">Sparkling</option>

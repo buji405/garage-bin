@@ -131,3 +131,29 @@ body {
   color: #fff;
   background-color: #2393d3;
 }
+
+.submit,
+.open-close {
+  outline: none;
+}
+
+.item-name,
+.reasoning,
+.status,
+.clean {
+  font-weight: bold;
+}
+
+.clean,
+.cleanliness-select-update {
+  margin-bottom: 5px;
+}
+
+.update-cleanliness {
+  float: right;
+  margin-right: 20px;
+  border-color: #2393d3;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
