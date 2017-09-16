@@ -79,7 +79,7 @@ const updateCleanliness = (e) => {
 }
 
 $('.garage').on('click', '.item-name', function (e) {
-  $(e.target).parent().find(".details").toggleClass("show")
+  $(e.target).parent().find(".details").toggleClass("reveal")
 })
 
 $('.garage').on('click', '.update-cleanliness', function (e) {
@@ -90,10 +90,12 @@ $('.garage-container').on('click', '.open-close', function (e) {
   if($('.door-status').hasClass('door')) {
     $('.door-status').addClass('show-more')
     $('.door-status').removeClass('door')
-    setInterval(function(){ $('.garage').addClass('show') }, 1500);
+    setTimeout(function(){ $('.garage').toggleClass('show') }, 1500);
   } else {
     $('.door-status').removeClass('show-more')
     $('.door-status').addClass('door')
-    $('.garage').removeClass('show')
+    $('.garage').removeClass('show')    
+    
   }
 })
+

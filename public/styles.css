@@ -8,8 +8,6 @@ body {
   background-image: url('https://ak0.picdn.net/shutterstock/videos/7860610/thumb/1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  /*height: 100%;*/
-  /*background-color: #7dc0e8;*/
 }
 
 .garage-container {
@@ -19,9 +17,9 @@ body {
 }
 
 .garage-essentails {
+  height: 500px;
   min-width: 1000px;
   max-width: 1000px;
-  height: 500px;
 }
 
 .garage {
@@ -49,20 +47,21 @@ body {
   margin-bottom: 40px;
 }
 
-.cleanliness-select {
+.cleanliness-select,
+.submit,
+.open-close {
   height: 30px;
 }
 
 .submit {
-  height: 30px;
   margin-left: 10px;
+  width: 80px;
+  background-color: #2393d3;
   border: none;
   border-radius: 2px;
-  width: 80px;
+  color: #fff;
   cursor: pointer;
   font-size: 14px;
-  background-color: #2393d3;
-  color: #fff;
 }
 
 .card-container {
@@ -80,7 +79,8 @@ body {
   cursor: pointer;
 }
 
-.reasoning {
+.reasoning,
+.status {
   margin-bottom: 10px;
 }
 
@@ -103,7 +103,7 @@ body {
   max-width: 1000px;
   background-color: #2393d3;
   position: absolute;
-  top: 220px;
+  top: 230px;
 }
 
 .show-more {
@@ -112,14 +112,22 @@ body {
   transition: 1.5s;
 }
 
+.reveal {
+  display: block;
+}
+
 .door {  
-  position: relative;
   height: 400px;
   width: 100%;
+  position: relative;
   transition: 1.5s;
   z-index: 10;
 }
 
 .open-close {
   margin-bottom: 20px;
+  border-radius: 2px;
+  border: none;
+  color: #fff;
+  background-color: #2393d3;
 }
