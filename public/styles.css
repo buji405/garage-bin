@@ -5,7 +5,11 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background-color: #7dc0e8;
+  background-image: url('https://ak0.picdn.net/shutterstock/videos/7860610/thumb/1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*height: 100%;*/
+  /*background-color: #7dc0e8;*/
 }
 
 .garage-container {
@@ -21,15 +25,7 @@ body {
 }
 
 .garage {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 850px;
-  max-width: 1000px;
-  background-color: lightgrey;
   display: none;
-  position: absolute;
-  top: 220px;
 }
 
 .info-container {
@@ -65,6 +61,8 @@ body {
   width: 80px;
   cursor: pointer;
   font-size: 14px;
+  background-color: #2393d3;
+  color: #fff;
 }
 
 .card-container {
@@ -98,6 +96,14 @@ body {
 
 .show {
   display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 850px;
+  max-width: 1000px;
+  background-color: #2393d3;
+  position: absolute;
+  top: 220px;
 }
 
 .show-more {
@@ -112,4 +118,8 @@ body {
   width: 100%;
   transition: 1.5s;
   z-index: 10;
+}
+
+.open-close {
+  margin-bottom: 20px;
 }
