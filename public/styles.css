@@ -27,6 +27,9 @@ body {
   width: 850px;
   max-width: 1000px;
   background-color: lightgrey;
+  display: none;
+  position: absolute;
+  top: 220px;
 }
 
 .info-container {
@@ -104,7 +107,9 @@ body {
 }
 
 .door {  
+  position: relative;
   height: 400px;
   width: 100%;
   transition: 1.5s;
+  z-index: 10;
 }
