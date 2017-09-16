@@ -85,3 +85,13 @@ $('.garage').on('click', '.item-name', function (e) {
 $('.garage').on('click', '.update-cleanliness', function (e) {
    updateCleanliness(e)
 })
+
+$('.garage-container').on('click', '.open-close', function (e) {
+  if($('.door-status').hasClass('door')) {
+    $('.door-status').addClass('show-more')
+    $('.door-status').removeClass('door')
+  } else {
+    $('.door-status').removeClass('show-more')
+    $('.door-status').addClass('door')
+  }
+})
