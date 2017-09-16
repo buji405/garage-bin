@@ -95,7 +95,15 @@ $('.garage-container').on('click', '.open-close', function (e) {
     $('.door-status').removeClass('show-more')
     $('.door-status').addClass('door')
     $('.garage').removeClass('show')    
-    
   }
 })
 
+$('.sort').on('click', function () {
+  let item = $('.card-container')
+  let sortedCards = Array.from(item).sort((a, b) => {
+    return a.childNodes[1].innerText > b.childNodes[1].innerText
+  })
+  sortedCards.forEach(card => {
+    $('.garage').append(card)
+  })
+})
