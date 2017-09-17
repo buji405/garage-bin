@@ -72,7 +72,7 @@ const updateCleanliness = (e) => {
   fetch(`/api/v1/items/${id}`, {
     method: 'PUT',
     body: JSON.stringify({ 
-      'cleanliness': statusUpdate
+      cleanliness: statusUpdate
      }),
     headers: { 'Content-Type': 'application/json' }
   })

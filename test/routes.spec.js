@@ -125,10 +125,9 @@ describe('API Routes', () => {
          cleanliness: 'rancid',
        })
        .end((err, res) => {
-         console.log(res.body[0]);
          res.status.should.equal(201);
          res.body[0].name.should.equal('tutu');
-         res.body[0].cleanliness.should.equal('{"cleanliness":"rancid"}');
+         res.body[0].cleanliness.should.equal('rancid');
          done();
        });
      })
