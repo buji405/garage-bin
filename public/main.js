@@ -60,6 +60,8 @@ const getItems = () => {
           </div>
         `)
     })
+    countTotal()
+    countCleanStatus()
   })
   .catch(error => console.log(error))
 }
@@ -107,3 +109,15 @@ $('.sort').on('click', function () {
     $('.garage').append(card)
   })
 })
+
+const countTotal = () => {
+  let item = $('.card-container')
+  $('.breakdown').append(`<p class="total-counter"> You have ${item.length} total items</p>`)
+}
+
+const countCleanStatus = () => {
+  let item = $('.card-container')
+  let itemArray = Array.from(item)
+  console.log(itemArray)
+  
+}

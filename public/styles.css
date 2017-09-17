@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
@@ -10,6 +14,9 @@ body {
   background-size: cover;
 }
 
+.breakdown {
+  padding-bottom: 10px;
+}
 .garage-container {
   display: flex;
   align-items: center;
@@ -103,7 +110,11 @@ body {
   max-width: 1000px;
   background-color: #2393d3;
   position: absolute;
-  top: 230px;
+  top: 270px;
+}
+
+.total-counter {
+  margin-top: -15px;
 }
 
 .show-more {

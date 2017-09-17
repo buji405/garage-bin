@@ -1,6 +1,5 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-
 const should = chai.should();
 const server = require('../server');
 
@@ -45,6 +44,7 @@ describe('API Routes', () => {
           done();
         });
     });
+    
     it('should return a 404 error if you go to the wrong endpoint', (done) => {
       chai.request(server)
       .get('/api/v1/itms')
@@ -91,6 +91,7 @@ describe('API Routes', () => {
         });
       });
     });
+    
     it('should return an error if required information is missing', () => {
       chai.request(server)
         .post('/api/v1/items')
@@ -113,17 +114,26 @@ describe('API Routes', () => {
   describe('PUT /api/v1/items', () => {
    it('should update cleanliness of an item', (done) => {
      chai.request(server)
-     .put('/api/v1/items/1')
-     .send({
-       cleanliness: 'rancid',
-     })
+     .get('/api/v1/items')
      .end((err, res) => {
-       res.status.should.equal(201);
-       res.should.be.json;
-       res.body.should.be.a('array');
-       done();
+       res.body[0].name.should.equal('tutu')
+       res.body[0].cleanliness.should.equal('sparkling')
+       
+       chai.request(server) 
+       .put('/api/v1/items/1')
+       .send({
+         cleanliness: 'rancid',
+       })
+       .end((err, res) => {
+         console.log(res.body[0]);
+         res.status.should.equal(201);
+         res.body[0].name.should.equal('tutu');
+         res.body[0].cleanliness.should.equal('{"cleanliness":"rancid"}');
+         done();
        });
+     })
    });
+   
    it('should not update an item that does not exist', () => {
      chai.request(server)
      .put('/api/v1/items/8')
