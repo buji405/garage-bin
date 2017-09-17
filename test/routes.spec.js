@@ -12,12 +12,12 @@ chai.use(chaiHttp);
 describe('API Routes', () => {
   before((done) => {
     knex.migrate.latest()
-      .then(() => done());
+      .then(() => done())
   });
   
   beforeEach((done) => {
     knex.seed.run()
-      .then(() => done());
+      .then(() => done())
   });
   
   describe('GET /api/v1/items', () => {
@@ -28,19 +28,19 @@ describe('API Routes', () => {
           res.status.should.equal(200);
           res.should.be.json;
           res.body.length.should.equal(3);
-          res.body[1].should.have.property('name')
-          res.body[1].name.should.equal('shovel')
-          res.body[1].should.have.property('reason')
-          res.body[1].reason.should.equal('for diggin things')
-          res.body[1].should.have.property('cleanliness')
-          res.body[1].cleanliness.should.equal('dusty')
+          res.body[1].should.have.property('name');
+          res.body[1].name.should.equal('shovel');
+          res.body[1].should.have.property('reason');
+          res.body[1].reason.should.equal('for diggin things');
+          res.body[1].should.have.property('cleanliness');
+          res.body[1].cleanliness.should.equal('dusty');
           
-          res.body[2].should.have.property('name')
-          res.body[2].name.should.equal('old rug')
-          res.body[2].should.have.property('reason')
-          res.body[2].reason.should.equal('stains on it')
-          res.body[2].should.have.property('cleanliness')
-          res.body[2].cleanliness.should.equal('rancid')    
+          res.body[2].should.have.property('name');
+          res.body[2].name.should.equal('old rug');
+          res.body[2].should.have.property('reason');
+          res.body[2].reason.should.equal('stains on it');
+          res.body[2].should.have.property('cleanliness');
+          res.body[2].cleanliness.should.equal('rancid')    ;
           done();
         });
     });
@@ -116,8 +116,8 @@ describe('API Routes', () => {
      chai.request(server)
      .get('/api/v1/items')
      .end((err, res) => {
-       res.body[0].name.should.equal('tutu')
-       res.body[0].cleanliness.should.equal('sparkling')
+       res.body[0].name.should.equal('tutu');
+       res.body[0].cleanliness.should.equal('sparkling');
        
        chai.request(server) 
        .put('/api/v1/items/1')

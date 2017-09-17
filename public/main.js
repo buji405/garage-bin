@@ -1,20 +1,21 @@
 
 $(function() {
-  getItems()
+  getItems();
 })
 
 $('.submit').on('click',  () => {
-  let nameVal = $('.name').val()
-  let reasonVal = $('.reason').val()
-  let cleanStatusVal = $('.cleanliness-select').val()
+  let nameVal = $('.name').val();
+  let reasonVal = $('.reason').val();
+  let cleanStatusVal = $('.cleanliness-select').val();
   
-  addItem(nameVal, reasonVal, cleanStatusVal)
-  clearInputs()
+  addItem(nameVal, reasonVal, cleanStatusVal);
+  clearInputs();
 })
 
 const clearInputs = () => {
-  $('input').val('')
-  $('.cleanliness-select').val('')
+  $('input').val('');
+  $('.cleanliness-select').val('');
+  $('.breakdown').text('')
 }
 
 const addItem = (nameVal, reasonVal, cleanStatusVal) => {
@@ -31,13 +32,13 @@ const addItem = (nameVal, reasonVal, cleanStatusVal) => {
   })
   .then((res) => res.json())
   .then((data) => {
-    getItems(data)
+    getItems(data);
   })
-  .catch((error ) => console.log(error))
+  .catch((error ) => console.log(error));
 }
 
 const getItems = () => {
-  $('.garage').html('')
+  $('.garage').html('');
   fetch(`/api/v1/items`)
   .then((res) => res.json())
   .then((info) => {
@@ -60,15 +61,15 @@ const getItems = () => {
           </div>
         `)
     })
-    countTotal()
-    countCleanStatus()
+    countTotal();
+    countCleanStatus();
   })
-  .catch(error => console.log(error))
+  .catch(error => console.log(error));
 }
 
 const updateCleanliness = (e) => {
-  let statusUpdate = $(e.target).parent().find('.cleanliness-select-update').val()
-  id = e.target.value
+  let statusUpdate = $(e.target).parent().find('.cleanliness-select-update').val();
+  id = e.target.value;
   fetch(`/api/v1/items/${id}`, {
     method: 'PUT',
     body: JSON.stringify({ 
@@ -80,44 +81,45 @@ const updateCleanliness = (e) => {
   .catch((error ) => console.log(error))
 }
 
+const countTotal = () => {
+  let item = $('.card-container')
+  $('.breakdown').append(`<p class="total-counter"> You have ${item.length} total items</p>`);
+}
+
+const countCleanStatus = () => {
+  let item = $('.card-container');
+  let itemArray = Array.from(item);  
+}
+
+// EVENT LISTENERS
+
 $('.garage').on('click', '.item-name', function (e) {
-  $(e.target).parent().find(".details").toggleClass("reveal")
+  $(e.target).parent().find(".details").toggleClass("reveal");
 })
 
 $('.garage').on('click', '.update-cleanliness', function (e) {
-   updateCleanliness(e)
+   updateCleanliness(e);
 })
 
 $('.garage-container').on('click', '.open-close', function (e) {
   if($('.door-status').hasClass('door')) {
-    $('.door-status').addClass('show-more')
-    $('.door-status').removeClass('door')
+    $('.door-status').addClass('show-more');
+    $('.door-status').removeClass('door');
     setTimeout(function(){ $('.garage').toggleClass('show') }, 1500);
   } else {
-    $('.door-status').removeClass('show-more')
-    $('.door-status').addClass('door')
-    $('.garage').removeClass('show')    
+    $('.door-status').removeClass('show-more');
+    $('.door-status').addClass('door');
+    $('.garage').removeClass('show');
   }
 })
 
 $('.sort').on('click', function () {
-  let item = $('.card-container')
+  let item = $('.card-container');
   let sortedCards = Array.from(item).sort((a, b) => {
-    return a.childNodes[1].innerText > b.childNodes[1].innerText
+    return a.childNodes[1].innerText > b.childNodes[1].innerText;
   })
   sortedCards.forEach(card => {
-    $('.garage').append(card)
+    $('.garage').append(card);
   })
 })
 
-const countTotal = () => {
-  let item = $('.card-container')
-  $('.breakdown').append(`<p class="total-counter"> You have ${item.length} total items</p>`)
-}
-
-const countCleanStatus = () => {
-  let item = $('.card-container')
-  let itemArray = Array.from(item)
-  console.log(itemArray)
-  
-}
