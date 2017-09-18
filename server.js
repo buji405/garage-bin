@@ -9,7 +9,7 @@ const database = require('knex')(configuration)
 
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (request, response) => {
@@ -24,7 +24,7 @@ app.get('/api/v1/items', (request, response) => {
     .catch(error => {
       response.status(500).json({ error })
     });
-})
+});
 
 app.post('/api/v1/items', (request, response) => {
   const newItem = request.body;
@@ -39,17 +39,17 @@ app.post('/api/v1/items', (request, response) => {
 
   database('item').insert(newItem, 'id')
     .then(item => {
-      response.status(201).json(newItem)
+      response.status(201).json(newItem);
     })
     .catch(error => {
-      response.status(500).json({ error })
+      response.status(500).json({ error });
     });
 })
 
 app.put('/api/v1/items/:id', (request, response) => {
   database('item').where('id', request.params.id)
   .update({
-    cleanliness: request.body,
+    cleanliness: request.body.cleanliness,
   }, '*')
   .then((data) => response.status(201).json(data))
   .catch((error) => response.status(500).json(error))

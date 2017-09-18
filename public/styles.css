@@ -2,24 +2,35 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
+  background-image: url('https://ak0.picdn.net/shutterstock/videos/7860610/thumb/1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+.breakdown {
+  padding-bottom: 10px;
+}
 .garage-container {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.garage {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.garage-essentails {
+  height: 500px;
   min-width: 1000px;
   max-width: 1000px;
-  background-color: lightgrey;
+}
+
+.garage {
+  display: none;
 }
 
 .info-container {
@@ -43,16 +54,19 @@ body {
   margin-bottom: 40px;
 }
 
-.cleanliness-select {
+.cleanliness-select,
+.submit,
+.open-close {
   height: 30px;
 }
 
 .submit {
-  height: 30px;
   margin-left: 10px;
+  width: 80px;
+  background-color: #2393d3;
   border: none;
   border-radius: 2px;
-  width: 80px;
+  color: #fff;
   cursor: pointer;
   font-size: 14px;
 }
@@ -72,7 +86,8 @@ body {
   cursor: pointer;
 }
 
-.reasoning {
+.reasoning,
+.status {
   margin-bottom: 10px;
 }
 
@@ -88,4 +103,75 @@ body {
 
 .show {
   display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 850px;
+  max-width: 1000px;
+  background-color: #2393d3;
+  position: absolute;
+  top: 270px;
+}
+
+.total-counter {
+  margin-top: -15px;
+}
+
+.show-more {
+  height: 0px;
+  width: 100%;
+  transition: 1.5s;
+}
+
+.reveal {
+  display: block;
+}
+
+.door {  
+  height: 400px;
+  width: 100%;
+  position: relative;
+  transition: 1.5s;
+  z-index: 10;
+}
+
+.open-close,
+.sort {
+  margin-bottom: 20px;
+  border-radius: 2px;
+  border: none;
+  color: #fff;
+  background-color: #2393d3;
+}
+
+.submit,
+.open-close {
+  outline: none;
+}
+
+.item-name,
+.reasoning,
+.status,
+.clean {
+  font-weight: bold;
+}
+
+.clean,
+.cleanliness-select-update {
+  margin-bottom: 5px;
+}
+
+.update-cleanliness {
+  float: right;
+  margin-right: 20px;
+  border-color: #2393d3;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.top-buttons {
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
 }
