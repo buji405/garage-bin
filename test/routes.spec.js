@@ -14,12 +14,12 @@ describe('API Routes', () => {
     knex.migrate.latest()
       .then(() => done())
   });
-  
+
   beforeEach((done) => {
     knex.seed.run()
       .then(() => done())
   });
-  
+
   describe('GET /api/v1/items', () => {
     it('should return all items', (done) => {
       chai.request(server)
@@ -34,7 +34,7 @@ describe('API Routes', () => {
           res.body[1].reason.should.equal('for diggin things');
           res.body[1].should.have.property('cleanliness');
           res.body[1].cleanliness.should.equal('dusty');
-          
+
           res.body[2].should.have.property('name');
           res.body[2].name.should.equal('old rug');
           res.body[2].should.have.property('reason');
@@ -44,7 +44,7 @@ describe('API Routes', () => {
           done();
         });
     });
-    
+
     it('should return a 404 error if you go to the wrong endpoint', (done) => {
       chai.request(server)
       .get('/api/v1/itms')
@@ -54,7 +54,7 @@ describe('API Routes', () => {
       });
   });
 });
-  
+
   describe('POST /api/v1/items', () => {
     it('should post an item', (done) => {
       chai.request(server)
@@ -79,7 +79,7 @@ describe('API Routes', () => {
           res.body.reason.should.equal('for sawin logs');
           res.body.should.have.property('cleanliness');
           res.body.cleanliness.should.equal('sparkling');
-          
+
           chai.request(server)
          .get('/api/v1/items')
          .end((err, res) => {
@@ -91,7 +91,7 @@ describe('API Routes', () => {
         });
       });
     });
-    
+
     it('should return an error if required information is missing', () => {
       chai.request(server)
         .post('/api/v1/items')
@@ -110,7 +110,7 @@ describe('API Routes', () => {
         });
     });
   });
-  
+
   describe('PUT /api/v1/items', () => {
    it('should update cleanliness of an item', (done) => {
      chai.request(server)
@@ -118,8 +118,8 @@ describe('API Routes', () => {
      .end((err, res) => {
        res.body[0].name.should.equal('tutu');
        res.body[0].cleanliness.should.equal('sparkling');
-       
-       chai.request(server) 
+
+       chai.request(server)
        .put('/api/v1/items/1')
        .send({
          cleanliness: 'rancid',
@@ -132,7 +132,7 @@ describe('API Routes', () => {
        });
      })
    });
-   
+
    it('should not update an item that does not exist', () => {
      chai.request(server)
      .put('/api/v1/items/8')

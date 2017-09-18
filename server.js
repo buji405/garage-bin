@@ -17,7 +17,7 @@ app.get('/', (request, response) => {
 });
 
 app.get('/api/v1/items', (request, response) => {
-  database('item').select();
+  database('item').select()
     .then(items => {
       response.status(200).json(items)
     })
@@ -47,7 +47,7 @@ app.post('/api/v1/items', (request, response) => {
 })
 
 app.put('/api/v1/items/:id', (request, response) => {
-  database('item').where('id', request.params.id);
+  database('item').where('id', request.params.id)
   .update({
     cleanliness: request.body.cleanliness,
   }, '*')
